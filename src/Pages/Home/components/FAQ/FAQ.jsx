@@ -27,7 +27,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse md:flex-row items-center mx-auto px-4 py-8 md:py-16 md:px-8">
+    <div className=" container flex flex-col-reverse md:flex-row items-center mx-auto px-4 py-8 md:py-16 md:px-8">
       {/* Image Section */}
       <div className="md:w-1/2 lg:w-2/5 md:pr-8 lg:pr-16 mb-8 md:mb-0">
         <img src={faqImg} alt="FAQ" className="w-full h-auto" />
