@@ -8,13 +8,13 @@ import { MdOutlineCloudDownload } from "react-icons/md";
 const About = () => {
   return (
     <section className="wrap-container py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-0 gap-x-40 lg:gap-x-52 items-center">
-      <div className="relative">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-0 gap-x-40 lg:gap-x-[230px] items-center">
+      <div className="relative lg:max-h-96">
       <img className="rounded-3xl relative z-10 w-full" src={img} alt="" />
       
       {/* Shape Image */}
-      <div className="absolute -top-10 right-10 md:right-15 lg:right-0 animate-spin-slow  z-20">
-        <img src={shape} className="max-w-20 md:w-full" alt="" />
+      <div className="absolute -top-9 right-10 md:right-15 lg:-right-4 animate-spin-slow  z-20">
+        <img src={shape} className="w-20 md:w-full" alt="" />
       </div>
       
       {/* Business Image */}
@@ -23,16 +23,16 @@ const About = () => {
       </div>
       
       {/* Visitor Image */}
-      <div className="absolute -bottom-5 right-10 sm:right-28 md:right-48 lg:-right-28 animate-bounce-slow z-20">
+      <div className="absolute -bottom-10 lg:-bottom-40 right-10 animate-bounce-slow sm:right-28 md:right-48 lg:-right-28 z-20">
         <img src={visitor} className="rounded-xl shadow-xl max-w-28 sm:max-w-48 md:max-w-full" alt="" />
       </div>
       
       {/* Shape Two Image */}
-      <div className="absolute -top-6 hidden lg:flex lg:-right-56">
+      <div className="absolute -top-2 hidden lg:flex lg:-right-[252px]">
         <img src={shapeTwo} alt="" />
       </div>
     </div>
-        <div>
+        <div className="lg:max-h-96">
           <p className="uppercase text-[#3E66F3] font-semibold flex items-center gap-3">
             Who We Are <p className="w-11 bg-[#3E66F3] h-[2px]"></p>
           </p>
