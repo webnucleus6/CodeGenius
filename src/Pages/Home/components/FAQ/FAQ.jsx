@@ -26,20 +26,29 @@ const FAQ = () => {
   };
 
   return (
-    <div className="md:flex justify-center mx-auto">
-      <div>
-        <img src={faqImg} alt="" />
+    <div className="flex con flex-col-reverse md:flex-row items-center mx-auto px-4 py-8 md:py-16 md:px-8">
+      {/* Image Section */}
+      <div className="md:w-1/2 lg:w-2/5 md:pr-8 lg:pr-16 mb-8 md:mb-0">
+        <img src={faqImg} alt="FAQ" className="w-full h-auto" />
       </div>
-      <div className="my-auto">
-        <h2 className="text-3xl">Empowering You With IT Knowledge</h2>
-        <div className="w-full max-w-md p-4 mx-auto  rounded-md shadow-md">
+
+      {/* FAQ Section */}
+      <div className="md:w-1/2 lg:w-3/5">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center md:text-left mb-6">
+          Empowering You With IT Knowledge
+        </h2>
+        <div className="w-full p-4 bg-white rounded-md shadow-md">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="flex justify-between w-full p-4 text-left text-blue-600 font-medium bg-gray-100 rounded-md focus:outline-none"
+                className={`flex justify-between w-full p-4 text-left font-medium rounded-md focus:outline-none ${
+                  openIndex === index
+                    ? "text-white bg-blue-600" // Styles when open
+                    : "text-black bg-gray-100" // Styles when closed
+                }`}
               >
-                {faq?.question}
+                {faq.question}
                 <span>{openIndex === index ? "-" : "+"}</span>
               </button>
               {openIndex === index && (
