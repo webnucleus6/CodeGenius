@@ -1,78 +1,72 @@
-import { useEffect, useMemo, useState } from "react";
-import { Cloud, fetchSimpleIcons, renderSimpleIcon } from "react-icon-cloud";
+import { useEffect, useState } from 'react';
+import { Cloud, renderSimpleIcon, fetchSimpleIcons } from 'react-icon-cloud';
 
-// Optional: Include your theme management system if you want to handle themes
-// If not needed, remove the theme-related logic
-const useTheme = () => {
-  const [theme, setTheme] = useState("light");
+const useIcons = (slugs) => {
+  const [icons, setIcons] = useState();
 
-  // You can implement theme toggle logic here or connect to a context provider
+  useEffect(() => {
+    fetchSimpleIcons({ slugs }).then(setIcons);
+  }, [slugs]);
 
-  return { theme, setTheme };
+  if (icons) {
+    return Object.values(icons.simpleIcons).map((icon) =>
+      renderSimpleIcon({
+        icon,
+        size: 30,
+        aProps: {
+          onClick: (e) => e.preventDefault(),
+        },
+      })
+    );
+  }
+
+  return <a>Loading</a>;
 };
 
-export const cloudProps = {
-  containerProps: {
-    style: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      paddingTop: 40,
-    },
-  },
-  options: {
+const slugs = [
+  "javascript",
+  "react",
+  "html5",
+  "css3",
+  "tailwindcss",
+  "nodedotjs",
+  "nodedotjs",
+  "express",
+  "nextdotjs",
+  "daisyui",
+  "firebase",
+  "vercel",
+  "mongodb",
+  "git",
+  "github",
+  "visualstudiocode",
+  "figma",
+  "adobephotoshop",
+  "adobeillustrator",
+];
+
+const DynamicIconCloud = () => {
+  const icons = useIcons(slugs);
+
+  const cloudOptions = {
+    wheelZoom: false, // Disable zooming in/out with the mouse wheel
     reverse: true,
     depth: 1,
-    wheelZoom: false,
     imageScale: 2,
     activeCursor: "default",
-    tooltip: "native",
     initial: [0.1, -0.1],
     clickToFront: 500,
     tooltipDelay: 0,
     outlineColour: "#0000",
     maxSpeed: 0.04,
     minSpeed: 0.02,
-    // dragControl: false,
-  },
+  };
+
+  return (
+    <Cloud options={cloudOptions}>
+      {icons}
+    </Cloud>
+  );
 };
 
-export const renderCustomIcon = (icon, theme) => {
-  const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
-  const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
-  const minContrastRatio = theme === "dark" ? 2 : 1.2;
-
-  return renderSimpleIcon({
-    icon,
-    bgHex,
-    fallbackHex,
-    minContrastRatio,
-    size: 42,
-    aProps: {
-      href: undefined,
-      target: undefined,
-      rel: undefined,
-      onClick: (e) => e.preventDefault(),
-    },
-  });
-};
-
-export default function Globe({ iconSlugs }) {
-  const [data, setData] = useState(null);
-  const { theme } = useTheme(); // Using theme management, or you can set a default theme
-
-  useEffect(() => {
-    fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
-  }, [iconSlugs]);
-
-  const renderedIcons = useMemo(() => {
-    if (!data) return null;
-
-    return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light")
-    );
-  }, [data, theme]);
-
-  return <Cloud {...cloudProps}>{renderedIcons}</Cloud>;
-}
+export default DynamicIconCloud;
