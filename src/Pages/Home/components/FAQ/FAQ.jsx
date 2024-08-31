@@ -3,6 +3,7 @@ import faqImg from "../../../../image/faq/faq_10_1.png";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
+
   const faqs = [
     {
       question: "What IT consulting services does Webteck offer?",
@@ -26,12 +27,12 @@ const FAQ = () => {
   };
 
   return (
-    <div className="flex con flex-col-reverse md:flex-row items-center mx-auto px-4 py-8 md:py-16 md:px-8">
+    <div className="flex flex-col-reverse md:flex-row items-center mx-auto px-4 py-8 md:py-16 md:px-8">
       {/* Image Section */}
       <div className="md:w-1/2 lg:w-2/5 md:pr-8 lg:pr-16 mb-8 md:mb-0">
         <img src={faqImg} alt="FAQ" className="w-full h-auto" />
       </div>
-
+      
       {/* FAQ Section */}
       <div className="md:w-1/2 lg:w-3/5">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center md:text-left mb-6">
@@ -51,11 +52,18 @@ const FAQ = () => {
                 {faq.question}
                 <span>{openIndex === index ? "-" : "+"}</span>
               </button>
-              {openIndex === index && (
-                <div className="p-4 text-gray-700 bg-white border-t border-gray-200">
-                  {faq.answer}
-                </div>
-              )}
+              {/* Answer with transition */}
+              <div
+                className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
+                  openIndex === index ? "max-h-40" : "max-h-0"
+                }`}
+              >
+                {openIndex === index && (
+                  <div className="p-4 text-gray-700 bg-white border-t border-gray-200">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
