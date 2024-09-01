@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Shared/Navbar/Navbar";
+import Footer from "../components/Shared/Footer";
 
 const Layout = () => {
   useEffect(() => {
@@ -32,9 +33,10 @@ const Layout = () => {
       <div>
         <Navbar />
       </div>
-      <div className="h-[1000px]">
+      <div className="">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 };
