@@ -9,29 +9,37 @@ const About = () => {
   return (
     <section className="wrap-container py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-y-0 gap-x-40 lg:gap-x-52 items-center">
-      <div className="relative">
-      <img className="rounded-3xl relative z-10 w-full" src={img} alt="" />
-      
-      {/* Shape Image */}
-      <div className="absolute -top-10 right-10 md:right-15 lg:right-0 animate-spin-slow  z-20">
-        <img src={shape} className="max-w-20 md:w-full" alt="" />
-      </div>
-      
-      {/* Business Image */}
-      <div className="absolute top-24 left-0 animate-bounce-slow z-20">
-        <img src={business} className="rounded-r-xl max-w-28 sm:max-w-48 md:max-w-full" alt="" />
-      </div>
-      
-      {/* Visitor Image */}
-      <div className="absolute -bottom-5 right-10 sm:right-28 md:right-48 lg:-right-28 animate-bounce-slow z-20">
-        <img src={visitor} className="rounded-xl shadow-xl max-w-28 sm:max-w-48 md:max-w-full" alt="" />
-      </div>
-      
-      {/* Shape Two Image */}
-      <div className="absolute -top-6 hidden lg:flex lg:-right-56">
-        <img src={shapeTwo} alt="" />
-      </div>
-    </div>
+        <div className="relative -z-10">
+          <img className="rounded-3xl relative z-10 w-full" src={img} alt="" />
+
+          {/* Shape Image */}
+          <div className="absolute -top-10 right-10 md:right-15 lg:right-0 animate-spin-slow  z-20">
+            <img src={shape} className="max-w-20 md:w-full" alt="" />
+          </div>
+
+          {/* Business Image */}
+          <div className="absolute top-24 left-0 animate-bounce-slow z-20">
+            <img
+              src={business}
+              className="rounded-r-xl max-w-28 sm:max-w-48 md:max-w-full"
+              alt=""
+            />
+          </div>
+
+          {/* Visitor Image */}
+          <div className="absolute -bottom-5 right-10 sm:right-28 md:right-48 lg:-right-28 animate-bounce-slow z-20">
+            <img
+              src={visitor}
+              className="rounded-xl shadow-xl max-w-28 sm:max-w-48 md:max-w-full"
+              alt=""
+            />
+          </div>
+
+          {/* Shape Two Image */}
+          <div className="absolute -top-6 hidden lg:flex lg:-right-56">
+            <img src={shapeTwo} alt="" />
+          </div>
+        </div>
         <div>
           <p className="uppercase text-[#3E66F3] font-semibold flex items-center gap-3">
             Who We Are <p className="w-11 bg-[#3E66F3] h-[2px]"></p>
@@ -114,7 +122,9 @@ const About = () => {
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#3E66F3] rounded-full group-hover:w-56 group-hover:h-56"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30"></span>
-              <span className="relative uppercase text-sm flex items-center gap-2"><IoPlayCircleSharp size={18}/> View Demo</span>
+              <span className="relative uppercase text-sm flex items-center gap-2">
+                <IoPlayCircleSharp size={18} /> View Demo
+              </span>
             </a>
             <a
               href="#_"
@@ -122,7 +132,9 @@ const About = () => {
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#3E66F3] rounded-full group-hover:w-56 group-hover:h-56"></span>
               <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30"></span>
-              <span className="relative uppercase text-sm flex items-center gap-2"><MdOutlineCloudDownload size={18}/> Download app</span>
+              <span className="relative uppercase text-sm flex items-center gap-2">
+                <MdOutlineCloudDownload size={18} /> Download app
+              </span>
             </a>
           </div>
         </div>
